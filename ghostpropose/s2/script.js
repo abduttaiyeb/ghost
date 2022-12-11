@@ -3,8 +3,8 @@ const beloved = document.getElementById("beloved");
 const user = document.getElementById("user");
 
 // Prompt user for info
-const belovedName = prompt("What is the name of your beloved?");
-const userName = prompt("What is your name?");
+const belovedName = prompt("Who are you?");
+const userName = prompt("Enter any password bitch");
 
 // Render info to elements
 beloved.textContent = belovedName;
