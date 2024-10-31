@@ -153,22 +153,20 @@
 
     <script>
         function checkAnswer(page, correctAnswer) {
-            const answerInput = document.getElementById('answer' + page);
-            const messageDiv = document.getElementById('message' + page);
-            const poemDiv = document.getElementById('poem' + page);
+    const answerInput = document.getElementById('answer' + page);
+    const messageDiv = document.getElementById('message' + page);
+    const poemDiv = document.getElementById('poem' + page);
 
-            if (answerInput.value.trim().toLowerCase() === correctAnswer.toLowerCase()) {
-                messageDiv.textContent = 'Correct! Here’s a poem for you...';
-                poemDiv.classList.remove('hidden');
-                if (page < 5) {
-                    document.getElementById('page' + page).classList.add('hidden');
-                    document.getElementById('page' + (page + 1)).classList.remove('hidden');
-                }
-            } else {
-                messageDiv.textContent = 'Oops! Try again, my love.';
-                messageDiv.style.color = 'red';
-            }
-        }
+    if (answerInput.value.trim().toLowerCase() === correctAnswer.toLowerCase()) {
+        messageDiv.textContent = 'Correct! Here’s a poem for you...';
+        messageDiv.style.color = 'green';
+        poemDiv.classList.remove('hidden');
+    } else {
+        messageDiv.textContent = 'Oops! Try again, my love.';
+        messageDiv.style.color = 'red';
+    }
+}
+
     </script>
 </body>
 </html>
