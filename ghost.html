@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Love for You</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffe6e6;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+        .container {
+            width: 80%;
+            max-width: 800px;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+        }
+        h1 {
+            color: #d6336c;
+        }
+        h2 {
+            color: #333;
+        }
+        .input-box {
+            padding: 10px;
+            width: 80%;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #d6336c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #c12a5b;
+        }
+        .message {
+            margin-top: 10px;
+        }
+        .poem {
+            display: none;
+            margin-top: 20px;
+            text-align: left;
+            color: #555;
+        }
+        .poem p {
+            margin: 5px 0;
+        }
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+    </style>
+    <script>
+        function checkAnswer(page, correctAnswer) {
+            const answerInput = document.getElementById('answer' + page);
+            const messageDiv = document.getElementById('message' + page);
+            const poemDiv = document.getElementById('poem' + page);
+            const currentPage = document.getElementById('page' + page);
+            const nextPage = document.getElementById('page' + (page + 1));
+
+            if (answerInput.value.trim().toLowerCase() === correctAnswer.toLowerCase()) {
+                messageDiv.textContent = 'Correct! Here’s a poem for you...';
+                messageDiv.style.color = 'green';
+                poemDiv.style.display = 'block';
+
+                // Move to the next page after 5 seconds if it exists
+                setTimeout(() => {
+                    currentPage.classList.remove('active');
+                    if (nextPage) {
+                        nextPage.classList.add('active');
+                    }
+                }, 5000); // 5-second delay
+            } else {
+                messageDiv.textContent = 'Oops! Try again, my love.';
+                messageDiv.style.color = 'red';
+            }
+        }
+
+        function showPage(page) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById('page' + page).classList.add('active');
+        }
+
+        window.onload = function() {
+            showPage(1); // Show the first page on load
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Question 1 -->
+        <div id="page1" class="page">
+            <h1>Oyee Ghost 👻</h1>
+            <h2>Q1) What do I call you?</h2>
+            <input type="password" id="answer1" class="input-box" placeholder="Your answer here...">
+            <button type="button" onclick="checkAnswer(1, 'Ghost')" class="btn">Submit</button>
+            <div class="message" id="message1"></div>
+            <div class="poem" id="poem1">
+                <p>I love you beyond the stars, my Ghost.</p>
+                <p>Your laughter is my melody, your smile my sun.</p>
+                <!-- Add more lines to meet the requirement -->
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div id="page2" class="page">
+            <h1>Oyee Ghost 👻</h1>
+            <h2>Q2) How much I love you?</h2>
+            <input type="password" id="answer2" class="input-box" placeholder="Your answer here...">
+            <button type="button" onclick="checkAnswer(2, 'Infinity and beyond')" class="btn">Submit</button>
+            <div class="message" id="message2"></div>
+            <div class="poem" id="poem2">
+                <p>To infinity and beyond, my love for you flows.</p>
+                <p>Your presence fills my heart, like petals of a rose.</p>
+                <!-- Add more lines to meet the requirement -->
+            </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div id="page3" class="page">
+            <h1>Oyee Ghost 👻</h1>
+            <h2>Q3) What is my darkweb alias?</h2>
+            <input type="password" id="answer3" class="input-box" placeholder="Your answer here...">
+            <button type="button" onclick="checkAnswer(3, 'dguy')" class="btn">Submit</button>
+            <div class="message" id="message3"></div>
+            <div class="poem" id="poem3">
+                <p>In shadows, I am known as dguy, but for you, I am love's light.</p>
+                <p>For you, my heart beats steady, day and night.</p>
+                <!-- Add more lines to meet the requirement -->
+            </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div id="page4" class="page">
+            <h1>Oyee Ghost 👻</h1>
+            <h2>Q4) Minamma Location?</h2>
+            <input type="password" id="answer4" class="input-box" placeholder="Your answer here...">
+            <button type="button" onclick="checkAnswer(4, 'Ahmedabad')" class="btn">Submit</button>
+            <div class="message" id="message4"></div>
+            <div class="poem" id="poem4">
+                <p>In Ahmedabad, our hearts align, a city where our love will shine.</p>
+                <p>Every street tells a tale, of love that will never pale.</p>
+                <!-- Add more lines to meet the requirement -->
+            </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div id="page5" class="page">
+            <h1>Oyee Ghost 👻</h1>
+            <h2>Q5) My enemy and competitor?</h2>
+            <input type="password" id="answer5" class="input-box" placeholder="Your answer here...">
+            <button type="button" onclick="checkAnswer(5, 'abduttaiyeb')" class="btn">Submit</button>
+            <div class="message" id="message5"></div>
+            <div class="poem" id="poem5">
+                <p>In the game of love, competitors may rise,</p>
+                <p>But my heart is yours, my dear, no surprise.</p>
+                <!-- Add more lines to meet the requirement -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
