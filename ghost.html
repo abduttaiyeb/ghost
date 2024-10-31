@@ -135,28 +135,24 @@
 </div>
 
 <script>
-    function checkAnswer(page) {
-        let answer = document.getElementById(`answer${page}`).value.toLowerCase().trim();
-        let message = document.getElementById(`message${page}`);
-        let poem = document.getElementById(`poem${page}`);
-        
-        // Answer validation
-        if ((page === 1 && answer === "ghost") ||
-            (page === 2 && answer === "infinity and beyond") ||
-            (page === 3 && answer === "dguy")) {
-            message.textContent = "Correct!";
-            poem.style.display = "block";
-            if (page < 3) {
-                setTimeout(() => {
-                    document.getElementById(`page${page}`).style.display = "none";
-                    document.getElementById(`page${page + 1}`).style.display = "block";
-                }, 1500);
+        function checkAnswer(page, correctAnswer) {
+            const answerInput = document.getElementById('answer' + page);
+            const messageDiv = document.getElementById('message' + page);
+            const poemDiv = document.getElementById('poem' + page);
+
+            if (answerInput.value.trim().toLowerCase() === correctAnswer.toLowerCase()) {
+                messageDiv.textContent = 'Correct! Here’s a poem for you...';
+                poemDiv.classList.remove('hidden');
+                if (page < 5) {
+                    document.getElementById('page' + page).classList.add('hidden');
+                    document.getElementById('page' + (page + 1)).classList.remove('hidden');
+                }
+            } else {
+                messageDiv.textContent = 'Oops! Try again, my love.';
+                messageDiv.style.color = 'red';
             }
-        } else {
-            message.textContent = "Incorrect, please try again.";
         }
-    }
-</script>
+    </script>
 
 </body>
 </html>
