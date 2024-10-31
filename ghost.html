@@ -160,12 +160,15 @@
     if (answerInput.value.trim().toLowerCase() === correctAnswer.toLowerCase()) {
         messageDiv.textContent = 'Correct! Here’s a poem for you...';
         messageDiv.style.color = 'green';
-        poemDiv.classList.remove('hidden');
+        setTimeout(() => {
+            poemDiv.style.display = 'block';
+        }, 10000); // 10-second delay
     } else {
         messageDiv.textContent = 'Oops! Try again, my love.';
         messageDiv.style.color = 'red';
     }
 }
+
 
     </script>
 </body>
